@@ -4,14 +4,17 @@
 
 @font-face {
   font-family: "Formula1 Display";
-  src: url("FORMULA1-REGULAR-1.TTF") format("truetype");
+  /* CORREÇÃO: Adicionando .woff para maior compatibilidade mobile */
+  src: url("FORMULA1-REGULAR-1.ttf") format("truetype"),
+    url("FORMULA1-REGULAR-1.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Formula1 Display";
-  src: url("FORMULA1-BOLD_WEB.TTF") format("truetype");
+  src: url("FORMULA1-BOLD_WEB.ttf") format("truetype"),
+    url("FORMULA1-BOLD_WEB.woff") format("woff");
   font-weight: bold;
   font-style: normal;
 }
@@ -173,25 +176,37 @@ h2 {
   color: var(--mach-white);
 }
 
-/* ... (Seu código CSS anterior) ... */
-
 /* ========================================= */
 /* 3. DESTAQUE MACH-ONE WEAR (SLIDER INTERNO) */
 /* ========================================= */
 .destaque-wear {
   padding: 20px 0;
+  max-width: 1200px; /* Largura máxima, igual a outras seções */
+  margin: 0 auto;
 }
 
-.grid-wear {
+/* NOVO: Container para o carrossel de coleções (Scroll Lateral) */
+.colecoes-carrossel {
   display: flex;
-  justify-content: center;
+  overflow-x: hidden; /* Habilita a rolagem horizontal */
+  padding-bottom: 20px;
   gap: 15px;
-  margin: 20px auto;
-  max-width: 1200px;
+
+  justify-content: center;
+  /* Regras de rolagem */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+/* OBRIGATÓRIO PARA CHROME, SAFARI, EDGE: Esconde a barra de rolagem visualmente */
+.colecoes-carrossel::-webkit-scrollbar {
+  display: none;
 }
 
 .wear-item {
-  flex: 1 1 30%;
+  /* NOVO: Define o tamanho de cada bloco de coleção e impede que encolha */
+  flex-shrink: 0;
+  width: 280px; /* Largura padrão para desktop */
+  display: block; /* Garante que o link ocupe o espaço */
+
   max-width: 350px;
   position: relative;
   overflow: hidden;
@@ -200,7 +215,6 @@ h2 {
   text-decoration: none;
   cursor: pointer;
   transition: box-shadow 0.3s, transform 0.3s;
-  /* Remove a função de link padrão do <a>, a menos que o texto seja clicado */
   pointer-events: all;
 }
 
@@ -282,7 +296,9 @@ h2 {
 }
 
 .subtitulo-colecao {
-  display: block;
+  display: flex; /* NOVO: Para alinhar o texto e o ícone */
+  align-items: center; /* NOVO: Para alinhar o texto e o ícone */
+  gap: 5px; /* NOVO: Espaçamento entre texto e ícone */
   margin-top: 10px;
   font-size: 0.85em;
   color: var(--mach-light-grey);
@@ -334,7 +350,7 @@ h2 {
   /* Manter esta regra para navegadores MS/Edge antigos que suportavam */
   -ms-overflow-style: none;
   /* Nota: 'scrollbar-width: none;' não é amplamente suportado,
-       portanto, dependemos da regra -webkit */
+        dependemos da regra -webkit */
 }
 
 /* OBRIGATÓRIO PARA CHROME, SAFARI, EDGE: Esconde a barra de rolagem visualmente */
@@ -361,7 +377,8 @@ h2 {
 }
 
 .video-item:hover .play-icon {
-  color: var(--mach-red);
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
 }
 
 .video-thumb {
@@ -379,16 +396,21 @@ h2 {
   position: relative;
 }
 
+/* NOVO: Estilo para o ícone de Play (agora é IMG) */
 .play-icon {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 3em;
-  color: var(--mach-white);
-  pointer-events: none; /* Garante que o clique vá para o link */
-  opacity: 0.85;
-  transition: color 0.2s, opacity 0.2s;
+  width: 60px; /* Aumenta o tamanho para melhor visualização no mobile */
+  height: 60px;
+  object-fit: contain; /* Garante que a imagem .png não distorça */
+  opacity: 0.9;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.video-item:hover .play-icon {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
 }
 
 .video-titulo {
@@ -579,6 +601,13 @@ footer {
   color: var(--mach-white);
 }
 
+/* NOVO: Estilo para os ícones sociais (IMG) */
+.social-icon {
+  width: 20px; /* Tamanho fixo para o ícone */
+  height: 20px;
+  object-fit: contain;
+}
+
 .social-links .icon {
   font-size: 1.2em;
   line-height: 1;
@@ -594,6 +623,21 @@ footer {
   }
   .bloco-info {
     flex: 1 1 100%;
+  }
+  .colecoes-carrossel {
+    overflow-x: scroll;
+    justify-content: flex-start; /* Alinha à esquerda no mobile */
+    padding-left: 10px; /* Adiciona o padding para começar na borda */
+    padding-right: 10px;
+  }
+
+  /* NOVO: Ajuste do tamanho dos itens de Coleção (Carrossel) no Mobile */
+  .wear-item {
+    width: 75vw; /* Ocupa 75% da largura da tela no mobile */
+  }
+  .destaque-wear {
+    /* Garante que o carrossel comece na borda da tela */
+    padding-left: 10px;
   }
 }
 
