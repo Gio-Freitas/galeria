@@ -167,7 +167,7 @@ function carregarEquipe() {
 
   const temas = {
     "19_20":
-      "'First comes the passion, and then comes the commitment to becoming the best.'- Lewis Hamilton",
+      "'First comes the passion, and then comes the commitment to becoming the best.' - Lewis Hamilton",
     "20_21":
       "'The secret to winning is the patience to wait for the right moment to strike.' - Niki Lauda",
     "21_22":
@@ -175,7 +175,7 @@ function carregarEquipe() {
     "22_23":
       "'I am not designed to come second or third, I am designed to win.' - Ayrton Senna",
     "23_24":
-      "'With regard to performance, commitment, effort, dedication, there is no middle ground. Or you do something very well or not at all.' Ayrton Senna",
+      "'With regard to performance, commitment, effort, dedication, there is no middle ground. Or you do something very well or not at all.' - Ayrton Senna",
     "24_25":
       "'Você precisa ter dedicação total, buscar seu limite e dar o melhor de si.' - Ayrton Senna",
     "25_26":
