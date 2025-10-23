@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria da Equipe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="galeria-page">
+  <header>
+    <a href="index.html" class="voltar">← Voltar</a>
+    <img src="img/logo mach branca.png" alt="Logo Mach-One" class="logo">
+  </header>
+
+  <main>
+    <section class="info-equipe">
+      <h1 id="titulo-equipe"></h1>
+      <p id="descricao-equipe"></p>
+    </section>
+
+    <section class="info-detalhada">
+
+      <div class="bloco-info">
+        <h2>Membros da Equipe</h2>
+        <ul id="lista-membros" class="lista-membros">
+        </ul>
+      </div>
+
+      <div class="bloco-info">
+        <h2>Destaques e Conquistas</h2>
+        <ul id="lista-destaques" class="lista-destaques">
+        </ul>
+      </div>
+
+    </section>
+
+    <section class="galeria">
+      <div id="fotos-equipe" class="grid-fotos">
+      </div>
+    </section>
+  </main>
+
+  <div id="lightbox" class="lightbox">
+    <span id="fechar">&times;</span>
+    <img id="img-expandida" alt="Imagem ampliada da galeria">
+    <button id="anterior">⟨</button>
+    <button id="proximo">⟩</button>
+  </div>
+
+  <footer>
+    <p>Mach-One Planalto © 2025. Construindo o Futuro, Pista a Pista.</p>
+
+    <div class="social-links">
+      <a href="https://www.mach1planalto.com.br/" target="_blank" rel="noopener noreferrer">
+        <span class="icon">🔗</span> Site Oficial
+      </a>
+      <a href="https://www.instagram.com/mach1planalto?igsh=ZWs3cGZ0ZDRpcXQ2" target="_blank" rel="noopener noreferrer">
+        <span class="icon">📸</span> Instagram
+      </a>
+      <a href="https://www.youtube.com/@mach1planalto/" target="_blank" rel="noopener noreferrer">
+        <span class="icon">▶️</span> YouTube
+      </a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,625 @@
+/* ========================================= */
+/* 1. FONT-FACE: CARREGAMENTO DA FONTE F1 */
+/* ========================================= */
+
+@font-face {
+  font-family: "Formula1 Display";
+  src: url("FORMULA1-REGULAR-1.TTF") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Formula1 Display";
+  src: url("FORMULA1-BOLD_WEB.TTF") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* ========================================= */
+/* 2. VARIÁVEIS DE COR E ESTILO GERAL */
+/* ========================================= */
+:root {
+  --mach-red: #e10600; /* Vermelho F1, vibrante para destaque */
+  --mach-black: #0e0e0e;
+  --mach-dark-grey: #1c1c1c;
+  --mach-light-grey: #ccc;
+  --mach-white: #fff;
+}
+
+body {
+  margin: 0;
+  font-family: "Formula1 Display", sans-serif;
+  background-color: var(--mach-black);
+  color: var(--mach-white);
+  text-align: center;
+}
+
+header {
+  background-color: var(--mach-dark-grey);
+  padding: 25px 20px;
+  position: relative;
+  border-bottom: 3px solid var(--mach-red);
+}
+
+.voltar {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  color: var(--mach-red);
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.2s;
+  z-index: 10;
+}
+
+.voltar:hover {
+  color: var(--mach-white);
+  text-shadow: 0 0 5px var(--mach-red);
+}
+
+.logo {
+  width: 120px;
+}
+
+h1,
+h2 {
+  margin: 10px 0;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+h2 {
+  border-left: 5px solid var(--mach-red);
+  padding-left: 10px;
+  display: inline-block;
+  color: var(--mach-white);
+  margin-top: 40px;
+}
+.galeria-page header {
+  border-bottom: none; /* Remove a linha vermelha apenas na galeria.html */
+}
+
+/* Informações da Equipe (Galeria.html) */
+.info-equipe {
+  padding: 20px;
+  background-color: var(--mach-dark-grey);
+  border-top: 1px solid #333;
+  border-left: none;
+  text-align: center;
+  max-width: 900px;
+  margin: 20px auto;
+}
+#titulo-equipe {
+  color: var(--mach-red);
+  font-size: 2.2rem;
+}
+#descricao-equipe {
+  font-style: normal;
+  color: var(--mach-light-grey);
+}
+/* ========================================= */
+/* 3. BLOCO DE INFORMAÇÕES DETALHADAS (MEMBROS/DESTAQUES) */
+/* ========================================= */
+
+.info-detalhada {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.bloco-info {
+  flex: 1 1 45%;
+  min-width: 300px;
+  background-color: var(--mach-dark-grey);
+  padding: 20px;
+  border-top: 5px solid var(--mach-red);
+  text-align: left;
+  border-radius: 4px;
+}
+
+.bloco-info h2 {
+  border-left: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+  display: block;
+  font-size: 1.5rem;
+  color: var(--mach-red);
+  margin-top: 0;
+}
+
+.lista-membros,
+.lista-destaques {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-membros li {
+  background-color: #2a2a2a;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-left: 3px solid var(--mach-light-grey);
+  transition: border-left 0.3s;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+.lista-membros li:hover {
+  border-left: 3px solid var(--mach-red);
+}
+
+.membro-nome {
+  font-weight: bold;
+  color: var(--mach-white);
+}
+
+.membro-funcao {
+  color: var(--mach-light-grey);
+  font-size: 0.9em;
+}
+
+.lista-destaques li {
+  background-color: #2a2a2a;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-left: 3px solid var(--mach-red);
+  color: var(--mach-white);
+}
+
+/* ... (Seu código CSS anterior) ... */
+
+/* ========================================= */
+/* 3. DESTAQUE MACH-ONE WEAR (SLIDER INTERNO) */
+/* ========================================= */
+.destaque-wear {
+  padding: 20px 0;
+}
+
+.grid-wear {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+.wear-item {
+  flex: 1 1 30%;
+  max-width: 350px;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--mach-dark-grey);
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: box-shadow 0.3s, transform 0.3s;
+  /* Remove a função de link padrão do <a>, a menos que o texto seja clicado */
+  pointer-events: all;
+}
+
+.wear-item:hover {
+  box-shadow: 0 0 15px var(--mach-red);
+  transform: translateY(-5px);
+}
+
+/* Container para a área visível do slider */
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 180px; /* Altura fixa para o slider */
+  overflow: hidden;
+  border-radius: 4px 4px 0 0;
+  pointer-events: none; /* Permite que o clique passe para a seta/link */
+}
+
+.foto-wear {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0; /* Esconde todas as fotos por padrão */
+  transition: opacity 0.5s ease;
+}
+
+.foto-wear.active-slide {
+  opacity: 1; /* Mostra apenas a foto ativa */
+}
+
+/* Setas de navegação */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--mach-white);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 12px;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: background 0.2s;
+  pointer-events: auto; /* Permite o clique na seta */
+}
+
+.slider-arrow:hover {
+  background: var(--mach-red);
+}
+
+.slider-arrow.prev {
+  left: 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.slider-arrow.next {
+  right: 0;
+  border-radius: 4px 0 0 4px;
+}
+
+.bloco-texto {
+  padding: 15px;
+  text-align: left;
+  pointer-events: auto; /* Permite que o clique vá para o link do Instagram */
+}
+
+.titulo-colecao {
+  margin: 0 0 5px 0;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--mach-white);
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--mach-red);
+  padding-bottom: 5px;
+}
+
+.subtitulo-colecao {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.85em;
+  color: var(--mach-light-grey);
+}
+
+.wear-item.xtreme-focus .foto-wear:first-child {
+  /* Aplica object-position: top SOMENTE na primeira imagem (.foto-wear) */
+  object-position: top;
+}
+
+.videos-f1 {
+  position: relative;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  background-color: var(--mach-dark-grey); /* Fundo escuro do bloco */
+  border-radius: 4px;
+}
+
+.videos-f1 h2 {
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 15px;
+  margin-bottom: 20px;
+}
+
+.videos-f1 .view-all {
+  position: absolute;
+  right: 20px;
+  top: 30px;
+  color: var(--mach-red);
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: color 0.2s;
+  z-index: 5;
+}
+
+.videos-f1 .view-all:hover {
+  color: var(--mach-white);
+}
+
+.videos-carrossel {
+  /* Habilita a rolagem horizontal */
+  display: flex;
+  overflow-x: scroll;
+  padding-bottom: 20px;
+  gap: 15px;
+  /* Manter esta regra para navegadores MS/Edge antigos que suportavam */
+  -ms-overflow-style: none;
+  /* Nota: 'scrollbar-width: none;' não é amplamente suportado,
+       portanto, dependemos da regra -webkit */
+}
+
+/* OBRIGATÓRIO PARA CHROME, SAFARI, EDGE: Esconde a barra de rolagem visualmente */
+.videos-carrossel::-webkit-scrollbar {
+  display: none;
+  width: 0; /* Garante que não ocupe espaço */
+  height: 0;
+}
+
+.video-item {
+  /* Define o tamanho de cada bloco de vídeo */
+  flex: 0 0 280px;
+  display: block;
+  text-decoration: none;
+  color: var(--mach-white);
+  background-color: var(--mach-black);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+
+.video-item:hover {
+  box-shadow: 0 0 10px var(--mach-red);
+}
+
+.video-item:hover .play-icon {
+  color: var(--mach-red);
+}
+
+.video-thumb {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+}
+
+.video-item {
+  position: relative;
+}
+
+.video-thumb {
+  position: relative;
+}
+
+.play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3em;
+  color: var(--mach-white);
+  pointer-events: none; /* Garante que o clique vá para o link */
+  opacity: 0.85;
+  transition: color 0.2s, opacity 0.2s;
+}
+
+.video-titulo {
+  padding: 10px 15px;
+  margin: 0;
+  font-size: 0.9em;
+  font-weight: bold;
+  line-height: 1.3;
+}
+
+/* ========================================= */
+/* 4. GALERIA (Miniaturas) */
+/* ========================================= */
+
+.grid-fotos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+.grid-fotos img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 4px;
+  transition: box-shadow 0.4s ease;
+  cursor: pointer;
+  transform: none;
+}
+
+.grid-fotos img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px var(--mach-red);
+}
+
+/* ========================================= */
+/* 5. EQUIPES (Botões) */
+/* ========================================= */
+
+.grid-equipes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: var(--mach-dark-grey);
+  border-radius: 8px;
+  max-width: 900px;
+}
+
+.grid-equipes a {
+  background: var(--mach-red);
+  color: var(--mach-white);
+  padding: 15px 18px;
+  border-radius: 4px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: background 0.3s, transform 0.2s, color 0.3s;
+}
+
+.grid-equipes a:hover {
+  background: var(--mach-white);
+  color: var(--mach-red);
+  transform: translateY(-2px);
+}
+
+/* ========================================= */
+/* 6. LIGHTBOX (Corrigido) */
+/* ========================================= */
+
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 4px;
+  transition: none;
+  object-fit: contain;
+  transform-origin: center center;
+  border: 2px solid var(--mach-red);
+}
+
+/* CLASSE PARA ROTACIONAR FOTOS VERTICAIS NO LIGHTBOX */
+.rot-horizontal {
+  transform: rotate(-90deg);
+  max-width: 90vh;
+  max-height: 90vw;
+}
+
+#fechar {
+  top: 20px;
+  right: 40px;
+  font-size: 40px;
+  font-weight: bold;
+  color: var(--mach-white);
+  position: fixed;
+  cursor: pointer;
+  z-index: 10000;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+button#anterior,
+button#proximo {
+  background: rgba(225, 6, 0, 0.2);
+  border: none;
+  color: var(--mach-red);
+  font-size: 3rem;
+  font-weight: bold;
+  padding: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1001;
+  border-radius: 0;
+  line-height: 1;
+  transition: background 0.2s, color 0.2s;
+}
+
+button#anterior:hover,
+button#proximo:hover {
+  background: var(--mach-red);
+  color: var(--mach-white);
+}
+
+#anterior {
+  left: 20px;
+}
+#proximo {
+  right: 50px;
+}
+
+/* ========================================= */
+/* 7. RODAPÉ E LINKS SOCIAIS */
+/* ========================================= */
+
+footer {
+  padding: 25px;
+  font-size: 0.9em;
+  color: #888;
+  background-color: var(--mach-dark-grey);
+  border-top: 1px solid #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.social-links {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  color: var(--mach-white);
+  text-decoration: none;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 15px;
+  border: 1px solid var(--mach-red);
+  border-radius: 4px;
+  background-color: transparent;
+  transition: background-color 0.3s, color 0.3s;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.social-links a:hover {
+  background-color: var(--mach-red);
+  color: var(--mach-white);
+}
+
+.social-links .icon {
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+/* ========================================= */
+/* 8. MEDIA QUERIES (Responsividade) */
+/* ========================================= */
+
+@media (max-width: 768px) {
+  .info-detalhada {
+    flex-direction: column;
+  }
+  .bloco-info {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  #anterior {
+    left: 5px;
+    font-size: 1.5rem;
+  }
+  #proximo {
+    right: 5px;
+    font-size: 1.5rem;
+  }
+  #fechar {
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .social-links a {
+    width: 80vw;
+    justify-content: center;
+  }
+}
